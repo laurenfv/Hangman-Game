@@ -38,6 +38,7 @@ var getPositionOfLetters = function(letter, word) {
         }
         else {
             incorrectGuesses.push(letter);
+            document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
         }
     return spaces;
     return incorrectGuesses;
