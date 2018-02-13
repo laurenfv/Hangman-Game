@@ -1,7 +1,7 @@
 var winsCounter = 0;
 var computersChoice;
 var wordBank = ["sun", "mercury", "venus", "earth", "mars", "saturn", "jupiter", "neptune", "uranus", "pluto", "comet", "star", "supernova", "galaxy", "universe", "titan", "moon", "orbit", "vacuum", "asteroid", "planet", "telescope", "nasa", "gravity", "atmosphere", "aliens", "scully", "mulder"];
-var numberOfGuesses = 13;
+var numberOfGuesses = 12;
 var wordLength;
 var spaces = [];
 var pressedN;
@@ -44,10 +44,15 @@ var getPositionOfLetters = function(letter, word) {
                 }
             }
         }
+        // else if (counter == 3 && incorrectGuesses.indexOf(letter) > -1){
+        //     break;
+        // }
         else {
-            incorrectGuesses.push(letter);
-            numberOfGuesses--;
-            document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
+            if (incorrectGuesses.indexOf(letter) === -1){
+                incorrectGuesses.push(letter);
+                numberOfGuesses--;
+                document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
+            }
         }
     return spaces;
     return incorrectGuesses;
