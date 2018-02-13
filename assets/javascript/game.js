@@ -58,7 +58,7 @@ var wordSolved = function(char, word) {
     if (word.indexOf(char) === -1) {
         winsCounter++;
         document.getElementById("wins").innerHTML = winsCounter;
-        reset();
+        setTimeout(function(){reset()}, 1000);
     }
 }
 
