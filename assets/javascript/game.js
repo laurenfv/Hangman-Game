@@ -17,6 +17,8 @@ var init = function() {
     computersChoice = wordBank[Math.floor(Math.random() * wordBank.length)];
     document.getElementById("counter").innerHTML = numberOfGuesses;
     document.getElementById("wins").innerHTML = winsCounter;
+    //get the word's length
+    wordLength = computersChoice.length;
 }
 
 // //randomly select a word
@@ -27,7 +29,7 @@ init();
 
 
 //get the word's length
-wordLength = computersChoice.length;
+// wordLength = computersChoice.length;
 
 //function that takes the length and spits out underscores as placeholders
 var makeBlanks = function(string) {
@@ -59,7 +61,7 @@ var getPositionOfLetters = function(letter, word) {
     return incorrectGuesses;
 }
 
-//hansles wins
+//handles wins
 var wordSolved = function(char, word) {
     if (word.indexOf(char) === -1) {
         winsCounter++;
@@ -113,6 +115,7 @@ var reset = function (){
     computersChoice = "";
     spaces = [];
     incorrectGuesses = [];
+    wordlength = 0;
     init();
     makeBlanks();
     document.getElementById("letters").innerHTML = spaces.join(" ");
