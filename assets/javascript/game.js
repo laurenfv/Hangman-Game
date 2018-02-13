@@ -11,8 +11,13 @@ var counter = 0;
 var incorrectGuesses = [];
 var underscore = "_";
 
+// var init = function {
+
+// }
+
 //randomly select a word
 var computersChoice = wordBank[Math.floor(Math.random() * wordBank.length)];
+document.getElementById("counter").innerHTML = numberOfGuesses;
 
 
 //get the word's length
@@ -38,6 +43,8 @@ var getPositionOfLetters = function(letter, word) {
         }
         else {
             incorrectGuesses.push(letter);
+            numberOfGuesses--;
+            console.log(numberOfGuesses);
             document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
         }
     return spaces;
@@ -71,6 +78,7 @@ document.onkeyup = function(event) {
     else{
         getPositionOfLetters(pressedK, computersChoice);
         console.log(pressedK);
+        handleTries();
         // wordChecker(pressedK, computersChoice);
         // console.log(accumulator);
     }
@@ -78,6 +86,16 @@ document.onkeyup = function(event) {
     return pressedK;
         
   };
+
+  var handleTries = function() {
+    if (numberOfGuesses === 0) {
+        alert("You lost!");
+    }
+    else {
+        document.getElementById("counter").innerHTML = numberOfGuesses;
+    }
+  }
+
 
 //   getPositionOfLetters(pressedK, computersChoice);
 
