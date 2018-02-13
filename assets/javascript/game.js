@@ -13,9 +13,11 @@ var underscore = "_";
 var init = function() {
     //randomly select a word
     computersChoice = wordBank[Math.floor(Math.random() * wordBank.length)];
+
     //update HTML
     document.getElementById("counter").innerHTML = numberOfGuesses;
     document.getElementById("wins").innerHTML = winsCounter;
+
     //get the word's length
     wordLength = computersChoice.length;
 }
@@ -23,7 +25,7 @@ var init = function() {
 init();
 
 
-//function that takes the length and spits out underscores as placeholders
+//takes the length and spits out underscores as placeholders
 var makeBlanks = function(string) {
     for (i = 0; i < wordLength; i++){
         spaces.push("_");
@@ -37,14 +39,17 @@ makeBlanks();
 var getPositionOfLetters = function(letter, word) {
     
         if (word.indexOf(letter) > -1) {
+            //gets the index of the letters, changes spaces[i] to be the letter instead of underscore
             for (i = 0; i < word.length; i++) {
                 if (word[i] === letter) {
                     spaces[i] = letter;
+                    //update HTML with spaces in place of commas
                     document.getElementById("letters").innerHTML = spaces.join(" ");
                 }
             }
         }
         else {
+            //otherwise update incorrect guesses unless the letter has already been guessed
             if (incorrectGuesses.indexOf(letter) === -1){
                 incorrectGuesses.push(letter);
                 numberOfGuesses--;
@@ -59,28 +64,40 @@ var getPositionOfLetters = function(letter, word) {
 //handles wins
 var wordSolved = function(char, word) {
     if (word.indexOf(char) === -1) {
+        
+        //increases counter
         winsCounter++;
+
+        //updates HTML
         document.getElementById("wins").innerHTML = winsCounter;
+        
+        //waits 1 second before reseting game to the last letter can appear on screen
         setTimeout(function(){
             reset()
         }, 1000);
+
     }
 }
 
 
 //keyup event and callback
 document.onkeyup = function(event) {
+    
+    //store keycode/ store letter/ increase counter
     pressedN = event.keyCode;
     pressedK = event.key;
     counter++;
 
+    //if it's the first key pressed, it can be any key to start the game
     if (counter === 1) {
         document.getElementById("letters").innerHTML = spaces.join(" ");
         
     }
+    //otherwise only letters are allowed to be pressed
     else if (pressedN < 40 || pressedN > 90){
         alert("Please select a letter.");
     }
+    //calls functions to get switch letters with underscores, handle a win, and handle a loss
     else{
         getPositionOfLetters(pressedK, computersChoice);
         wordSolved(underscore, spaces);
@@ -94,9 +111,11 @@ document.onkeyup = function(event) {
   //handles losses
   var handleTries = function() {
     if (numberOfGuesses === 0) {
+        //reset game
         reset();
     }
     else {
+        //update HTML
         document.getElementById("counter").innerHTML = numberOfGuesses;
     }
   }
