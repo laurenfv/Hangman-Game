@@ -1,13 +1,11 @@
 var winsCounter = 0;
 var computersChoice;
 var wordBank = ["sun", "mercury", "venus", "earth", "mars", "saturn", "jupiter", "neptune", "uranus", "pluto", "comet", "star", "supernova", "galaxy", "universe", "titan", "moon", "orbit", "vacuum", "asteroid", "planet", "telescope", "nasa", "gravity", "atmosphere", "aliens", "scully", "mulder"];
-var lettersGuessed = 0;
 var numberOfGuesses = 13;
 var wordLength;
 var spaces = [];
 var pressedN;
 var pressedK;
-var correctGuesses = [];
 var counter = 0;
 var incorrectGuesses = [];
 var underscore = "_";
@@ -15,21 +13,15 @@ var underscore = "_";
 var init = function() {
     //randomly select a word
     computersChoice = wordBank[Math.floor(Math.random() * wordBank.length)];
+    //update HTML
     document.getElementById("counter").innerHTML = numberOfGuesses;
     document.getElementById("wins").innerHTML = winsCounter;
     //get the word's length
     wordLength = computersChoice.length;
 }
 
-// //randomly select a word
-// var computersChoice = wordBank[Math.floor(Math.random() * wordBank.length)];
-// document.getElementById("counter").innerHTML = numberOfGuesses;
-// document.getElementById("wins").innerHTML = winsCounter;
 init();
 
-
-//get the word's length
-// wordLength = computersChoice.length;
 
 //function that takes the length and spits out underscores as placeholders
 var makeBlanks = function(string) {
@@ -88,8 +80,6 @@ document.onkeyup = function(event) {
         getPositionOfLetters(pressedK, computersChoice);
         wordSolved(underscore, spaces);
         handleTries();
-        // wordChecker(pressedK, computersChoice);
-        // console.log(accumulator);
     }
     
     return pressedK;
@@ -109,15 +99,20 @@ document.onkeyup = function(event) {
 
 //resets stats in game except games won
 var reset = function (){
+
+    //reset stats
     counter = 2;
     numberOfGuesses = 13;
-    lettersGuessed = [];
     computersChoice = "";
     spaces = [];
     incorrectGuesses = [];
     wordlength = 0;
+
+    //initialize game
     init();
     makeBlanks();
+
+    //reset the HTML
     document.getElementById("letters").innerHTML = spaces.join(" ");
     document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
 }

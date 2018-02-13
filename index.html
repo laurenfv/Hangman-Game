@@ -9,27 +9,38 @@
   <title>Hangman</title>
 
   <!-- Bootstrap CDN -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Nova+Mono" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 
 </head>
 
 <body>
 
-
+    <div class="container-fluid">
+        <header class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-1 right rounded">
+                    <h3>wins:</h3>
+                    <p id = "wins"></p>
+                </div>
+            </div>
+        </header>
+    </div>
     <div class="container">
         <div class="jumbotron">
-            <h1 id="letters">Press any key to start!</h1> 
+            <h1 id="letters">press any key to start</h1> 
         </div> 
-        <div>
-            <h3>letters already guessed:</h3>
-            <p id = "guessed"></p>
-            <h3>number of tries remaining:</h3>
-            <p id = "counter"></p>
-            <h3>wins:</h3>
-            <p id = "wins"></p>
+        <div class="row">
+            <div class="col-sm-5 col-xs-12 unit">
+                <h3>letters already guessed:</h3>
+                <p id = "guessed">_</p>
+            </div>
+            <div class="col-sm-5 col-xs-12 unit pull-right">
+                <h3>number of tries remaining:</h3>
+                <p id = "counter"></p>
+            </div>
         </div>
     </div>
   
