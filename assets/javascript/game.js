@@ -44,9 +44,6 @@ var getPositionOfLetters = function(letter, word) {
                 }
             }
         }
-        // else if (counter == 3 && incorrectGuesses.indexOf(letter) > -1){
-        //     break;
-        // }
         else {
             if (incorrectGuesses.indexOf(letter) === -1){
                 incorrectGuesses.push(letter);
@@ -54,6 +51,7 @@ var getPositionOfLetters = function(letter, word) {
                 document.getElementById("guessed").innerHTML = incorrectGuesses.join(" ");
             }
         }
+
     return spaces;
     return incorrectGuesses;
 }
@@ -63,7 +61,9 @@ var wordSolved = function(char, word) {
     if (word.indexOf(char) === -1) {
         winsCounter++;
         document.getElementById("wins").innerHTML = winsCounter;
-        setTimeout(function(){reset()}, 1000);
+        setTimeout(function(){
+            reset()
+        }, 1000);
     }
 }
 
@@ -107,7 +107,7 @@ var reset = function (){
 
     //reset stats
     counter = 2;
-    numberOfGuesses = 13;
+    numberOfGuesses = 12;
     computersChoice = "";
     spaces = [];
     incorrectGuesses = [];

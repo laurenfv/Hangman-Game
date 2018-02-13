@@ -33,4 +33,5 @@ h1 {
     border: solid 1px white;
     border-radius: 15px;
     font-family: 'Montserrat', sans-serif;
+    min-height: 90px;
 }
