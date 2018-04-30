@@ -11,7 +11,7 @@
 
 ## How to Play
 
-Player starts the game by pressing any key. Placeholders for the letters of a random, space-themed word appear on the screen. The player may press any letter key in an attempt to correctly guess the word. If the guess is correct, the letter will replace the placeholder wherever it appears. If the guess is incorrect, the incorrect guess will populate under "letters aready guessed" and deduct from remaining guesses. The amount of times the game has been won is recoded at the top of te screen.
+Player starts the game by pressing any key. Placeholders for the letters of a random, space-themed word appear on the screen. The player may press any letter key in an attempt to correctly guess the word. If the guess is correct, the letter will replace the placeholder wherever it appears. If the guess is incorrect, the incorrect guess will populate under "letters aready guessed" and deduct from remaining guesses. The amount of times the game has been won is recoded at the top of the screen.
 
 ## Features
 - Placeholders for letters that have not yet been guessed to display the word's length.
