@@ -8,6 +8,7 @@
 - HTML5
 - CSS
 - Javascript
+- Bootstrap
 
 ## How to Play
 
