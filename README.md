@@ -1,7 +1,7 @@
 # Space Hangman
 > Space Hangman is a front-end web app with an out-of-this-world twist on the classic game.
 
-![](header.png)
+![picture](assets/images/test3.png)
 
 ## Technologies Used
 
